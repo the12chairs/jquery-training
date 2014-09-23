@@ -8,15 +8,21 @@ function loadSongs()
             var buildList = '';
             answer.forEach(function(i){
                 if(i.title == 'like')
-                    buildList += '<div id = '+ i.id+'class="liked_block">';
+                    buildList += '<div id = "'+ i.id+'"class="liked_block">';
                 else
                     buildList += '<div id="'+ i.id+'" class="block">';
                     buildList +=
-                                '<h2>'+ i.title + '</h2> <br/>' +
-                                '<a href="#" onclick="del('+ i.id+')">X</a>' +
-                                '<p>'+ i.genres + '</p> <br/>' +
-                                '<a href="#" onclick="like(' + i.id + ');">Like</a>' +
-                             '</div> <br/>';
+                                    '<div class="head">' +
+                                        '<h2>'+ i.title + '</h2> <br/>' +
+                                        '<a class="del" href="#" onclick="del('+ i.id+')">X</a>' +
+                                    '</div>'+
+                                    '<div class="message">'+
+                                        '<p>'+ i.genres + '</p> <br/>' +
+                                    '</div>'+
+                                        '<a href="#" onclick="like(' + i.id + ');">Like</a>' +
+
+                                '</div>';
+
             });
             $('#list').html(buildList);
             //alert(buildList);
