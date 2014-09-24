@@ -37,7 +37,6 @@ function del(id)
         type: 'DELETE',
         success: function(result) {
             $('#'+id).fadeOut();
-            //alert('Success!');
         }
     });
 }
@@ -49,9 +48,9 @@ function like(id)
     $.ajax({
         url: 'http://localhost/yii-training/index.php/api/update?model=songs&id='+id,
         type: 'POST',
-        data: 'title=like', // In case where we have 'like field'
+        data: 'title=like', // If  we have 'like' field
         success: function(result) {
-            alert('Success!');
+            loadSongs();
         }
     });
 }
